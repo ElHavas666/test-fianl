@@ -53,9 +53,13 @@ namespace Test6
             app.UseSpa(spa =>
             {
                 spa.Options.SourcePath = ".";
-
                 if (env.IsDevelopment())
                 {
+                    spa.UseReactDevelopmentServer(npmScript: "start");
+                }
+                else
+                {
+                    // Todo:: Find better solution to setup react
                     spa.UseReactDevelopmentServer(npmScript: "start");
                 }
             });
